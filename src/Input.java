@@ -1,5 +1,7 @@
-import MyException.NotEnoughtAge;
-import RegexPattern.Example;
+package src;
+
+import myException.NotEnoughAge;
+import regexPattern.Example;
 
 import java.util.Scanner;
 
@@ -14,13 +16,13 @@ public class Input {
                 age = Integer.parseInt(scanner.nextLine());
 
                 if (age < 18) {
-                    throw new NotEnoughtAge("You're not enought age");
+                    throw new NotEnoughAge("You're not enough age");
                 }
 
                 isValidInput = true;
             } catch (NumberFormatException e) {
                 System.err.println("Wrong format, please retype!");
-            } catch (NotEnoughtAge e) {
+            } catch (NotEnoughAge e) {
                 System.err.println(e.getMessage());
             }
         } while (!isValidInput);

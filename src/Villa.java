@@ -1,4 +1,6 @@
-import MyException.NotFoundID;
+package src;
+
+import myException.NotFoundID;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -56,6 +58,9 @@ public class Villa {
         boolean check = true;
 
         for (Customer customers : customers) {
+            if (customer.getId() == customers.getId()) {
+                continue;
+            }
             if (customer.getCheckoutLocalDate().isAfter(customers.getCheckinLocalDate()) &&
                     customer.getCheckinLocalDate().isBefore(customers.getCheckoutLocalDate())) {
                 check = false;
@@ -68,11 +73,12 @@ public class Villa {
         Customer customer = new Customer();
         customer.input();
 
+
         if (checkVillaAvailable(customer)) {
             customers.add(customer);
             writeCustomerToList();
         } else {
-            System.out.println("Phòng " + getVillaName() + " đã có người.");
+            System.out.println("Villa is unavailable");
         }
     }
 
@@ -91,6 +97,42 @@ public class Villa {
 
         if (!check) {
             throw new NotFoundID("Not found customer ID");
+        }
+    }
+
+    public void editCustomerByID() throws NotFoundID {
+        System.out.println("Enter ID to remove customer");
+        int id = Input.inputNumber();
+        boolean check = false;
+        for (Customer customer : customers) {
+            if (id == customer.getId()) {
+                check = true;
+                String checkInTemp = customer.getCheckinDate();
+                String checkOutTemp = customer.getCheckoutDate();
+                System.out.println("Input new check in date:");
+                String newCheckInDate = String.valueOf(Input.inputDate());
+                System.out.println("Input new check out date:");
+                String newCheckOutDate = String.valueOf(Input.inputDate());
+                customer.setCheckinDate(newCheckInDate);
+                customer.setCheckoutDate(newCheckOutDate);
+
+                isNewDateAvailable(customer, checkInTemp, checkOutTemp);
+                break;
+            }
+        }
+
+        if (!check) {
+            throw new NotFoundID("Not found customer ID");
+        }
+    }
+
+    private void isNewDateAvailable(Customer customer, String checkInTemp, String checkOutTemp) {
+        if (checkVillaAvailable(customer)) {
+            writeCustomerToList();
+        } else {
+            System.out.println("Your new check in/ check out date is unavailable");
+            customer.setCheckinDate(checkInTemp);
+            customer.setCheckoutDate(checkOutTemp);
         }
     }
 }
