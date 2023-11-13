@@ -29,9 +29,9 @@ public class Customer implements Serializable{
     }
 
     public void input() {
-        System.out.println("Customer name:");
+        System.out.println("Tên:");
         this.customerName = Input.inputName();
-        System.out.println("Customer age:");
+        System.out.println("Tuổi:");
         this.customerAge = Input.inputAge();
         System.out.println("Check in:");
         checkinDate = String.valueOf(Input.inputDate());
@@ -105,7 +105,7 @@ public class Customer implements Serializable{
     }
 
     public String toString() {
-        return "ID: " + getId() + " | Customer name: " + getCustomerName() + " | Age: " + getCustomerAge() +
+        return "ID: " + getId() + " | Tên: " + getCustomerName() + " | Tuổi: " + getCustomerAge() +
                 " | Checkin: " + getCheckinLocalDate() + " | Checkout: " + getCheckoutLocalDate();
     }
 }

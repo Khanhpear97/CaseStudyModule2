@@ -17,9 +17,9 @@ public class Search implements Constance {
 
     public void searchMenu() throws NotFoundID {
         do {
-            System.out.println("1. Search by ID");
-            System.out.println("2. Search by date range");
-            System.out.println("0. Exit search menu");
+            System.out.println("1. Tìm khách hàng bằng ID");
+            System.out.println("2. Tìm khách đã đặt phòng trong khoảng thời gian");
+            System.out.println("0. Thoát tìm kiếm");
             int key = Input.inputNumber();
             switch (key) {
                 case SEARCH_BY_ID:
@@ -36,7 +36,7 @@ public class Search implements Constance {
 
     private void searchByID() throws NotFoundID {
         ArrayList<Customer> data = new ArrayList<>();
-        System.out.println("Enter ID to search customer");
+        System.out.println("Nhập ID để tìm khách hàng:");
         int id = Input.inputNumber();
         boolean check = false;
         for (Customer customer : list) {
@@ -47,14 +47,14 @@ public class Search implements Constance {
             }
         }
         if (!check) {
-            throw new NotFoundID("Not found customer ID");
+            throw new NotFoundID("Không tìm thấy ID khách hàng.");
         }
         display(data);
     }
 
     private void searchByDate() {
         ArrayList<Customer> data = new ArrayList<>();
-        System.out.println("Enter a date range to search");
+        System.out.println("Nhập khoảng thời gian tìm kiếm:");
         String firstDate = String.valueOf(Input.inputDate());
         String secondDate = String.valueOf(Input.inputDate());
         for (Customer customer : list) {

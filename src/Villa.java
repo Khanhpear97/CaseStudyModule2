@@ -69,12 +69,12 @@ public class Villa {
             customers.add(customer);
             writeCustomerToList();
         } else {
-            System.out.println("Villa is unavailable");
+            System.err.println("Lịch đặt phòng không còn trống.");
         }
     }
 
     public void removeCustomerByID() throws NotFoundID {
-        System.out.println("Enter ID to remove customer");
+        System.out.println("Nhập ID để xoá khách đặt phòng:");
         int id = Input.inputNumber();
         boolean check = false;
         for (Customer customer : customers) {
@@ -87,12 +87,12 @@ public class Villa {
         }
 
         if (!check) {
-            throw new NotFoundID("Not found customer ID");
+            throw new NotFoundID("Không tìm thấy ID khách hàng.");
         }
     }
 
     public void editCustomerByID() throws NotFoundID {
-        System.out.println("Enter ID to edit customer");
+        System.out.println("Nhập ID để chỉnh sửa thông tin đặt phòng:");
         int id = Input.inputNumber();
         boolean check = false;
         for (Customer customer : customers) {
@@ -100,9 +100,9 @@ public class Villa {
                 check = true;
                 String checkInTemp = customer.getCheckinDate();
                 String checkOutTemp = customer.getCheckoutDate();
-                System.out.println("Enter new check in date:");
+                System.out.println("Nhập ngày check in mới:");
                 String newCheckInDate = String.valueOf(Input.inputDate());
-                System.out.println("Enter new check out date:");
+                System.out.println("Nhập ngày check out mới:");
                 String newCheckOutDate = String.valueOf(Input.inputDate());
                 customer.setCheckinDate(newCheckInDate);
                 customer.setCheckoutDate(newCheckOutDate);
@@ -113,7 +113,7 @@ public class Villa {
         }
 
         if (!check) {
-            throw new NotFoundID("Not found customer ID");
+            throw new NotFoundID("Không tìm thấy ID khách hàng.");
         }
     }
 
@@ -121,7 +121,7 @@ public class Villa {
         if (checkVillaAvailable(customer)) {
             writeCustomerToList();
         } else {
-            System.out.println("Your new check in/ check out date is unavailable");
+            System.err.println("Lịch đặt phòng mới không còn trống.");
             customer.setCheckinDate(checkInTemp);
             customer.setCheckoutDate(checkOutTemp);
         }

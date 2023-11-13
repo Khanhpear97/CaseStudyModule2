@@ -9,13 +9,13 @@ public class Menu implements Constance {
         System.out.println("------Menu------");
         Villa villa = new Villa();
         do {
-            System.out.println("1. Add customer");
-            System.out.println("2. Show customer list");
-            System.out.println("3. Remove customer");
-            System.out.println("4. Edit customer check in/ check out date");
-            System.out.println("5. Search customer");
-            System.out.println("6. Show text file");
-            System.out.println("0. Exit menu");
+            System.out.println("1. Thêm khách hàng");
+            System.out.println("2. Hiển thị danh sách khách hàng");
+            System.out.println("3. Xoá thông tin khách hàng");
+            System.out.println("4. Sửa thông tin đặt phòng");
+            System.out.println("5. Tìm kiếm khách hàng");
+            System.out.println("6. Hiển thị file text");
+            System.out.println("0. Thoát chương trình");
             int key = Input.inputNumber();
             switch (key) {
                 case ADD_CUSTOMER:

@@ -16,12 +16,12 @@ public class Input {
                 age = Integer.parseInt(scanner.nextLine());
 
                 if (age < 18) {
-                    throw new NotEnoughAge("You're not enough age");
+                    throw new NotEnoughAge("Bạn chưa đủ tuổi để đặt phòng (yêu cầu từ 18 tuổi trở lên)!");
                 }
 
                 isValidInput = true;
             } catch (NumberFormatException e) {
-                System.err.println("Wrong format, please retype!");
+                System.err.println("Sai cú pháp, vui lòng nhập lại!");
             } catch (NotEnoughAge e) {
                 System.err.println(e.getMessage());
             }
@@ -36,7 +36,7 @@ public class Input {
             try {
                 return Integer.parseInt(scanner.nextLine());
             } catch (NumberFormatException e) {
-                System.err.println("Wrong format, please retype!");
+                System.err.println("Sai cú pháp, vui lòng nhập lại!");
             }
         }
     }
@@ -50,7 +50,7 @@ public class Input {
                 if (isValid) {
                     return date;
                 } else {
-                    throw new IllegalAccessException("Wrong format, please retype!");
+                    throw new IllegalAccessException("Sai cú pháp, vui lòng nhập lại!");
                 }
             } catch (Exception e) {
                 System.err.println(e.getMessage());
@@ -67,7 +67,7 @@ public class Input {
                 if (isValid) {
                     return name;
                 } else {
-                    throw new IllegalAccessException("Wrong format, please retype!");
+                    throw new IllegalAccessException("Sai cú pháp, vui lòng nhập lại!");
                 }
             } catch (Exception e) {
                 System.err.println(e.getMessage());
