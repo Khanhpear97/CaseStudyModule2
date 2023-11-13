@@ -1,4 +1,4 @@
-package src;
+package method;
 
 import myException.NotEnoughAge;
 import regexPattern.Example;
@@ -46,12 +46,12 @@ public class Input {
         while (true) {
             String date = input.nextLine().trim();
             try {
-                    boolean isValid = Example.checkCheckinCheckout(date);
-                    if (isValid) {
-                        return date;
-                    } else {
-                        throw new IllegalAccessException("Wrong format, please retype!");
-                    }
+                boolean isValid = Example.checkCheckinCheckout(date);
+                if (isValid) {
+                    return date;
+                } else {
+                    throw new IllegalAccessException("Wrong format, please retype!");
+                }
             } catch (Exception e) {
                 System.err.println(e.getMessage());
             }

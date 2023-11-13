@@ -1,24 +1,15 @@
 package src;
 
+import method.Input;
 import myException.NotFoundID;
 
 import java.io.*;
 import java.util.ArrayList;
 
 public class Villa {
-    ArrayList<Customer> customers = new ArrayList<>();
-    private String villaName;
+    public ArrayList<Customer> customers = new ArrayList<>();
 
-    public Villa(String villaName) {
-        this.villaName = villaName;
-    }
-
-    public String getVillaName() {
-        return villaName;
-    }
-
-    public void setVillaName(String villaName) {
-        this.villaName = villaName;
+    public Villa() {
     }
 
     public void writeCustomerToList() {
@@ -101,7 +92,7 @@ public class Villa {
     }
 
     public void editCustomerByID() throws NotFoundID {
-        System.out.println("Enter ID to remove customer");
+        System.out.println("Enter ID to edit customer");
         int id = Input.inputNumber();
         boolean check = false;
         for (Customer customer : customers) {
@@ -109,9 +100,9 @@ public class Villa {
                 check = true;
                 String checkInTemp = customer.getCheckinDate();
                 String checkOutTemp = customer.getCheckoutDate();
-                System.out.println("Input new check in date:");
+                System.out.println("Enter new check in date:");
                 String newCheckInDate = String.valueOf(Input.inputDate());
-                System.out.println("Input new check out date:");
+                System.out.println("Enter new check out date:");
                 String newCheckOutDate = String.valueOf(Input.inputDate());
                 customer.setCheckinDate(newCheckInDate);
                 customer.setCheckoutDate(newCheckOutDate);

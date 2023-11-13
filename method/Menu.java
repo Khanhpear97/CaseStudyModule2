@@ -1,6 +1,7 @@
-package src;
+package method;
 
 import myException.NotFoundID;
+import src.Villa;
 
 public class Menu implements Constance {
 
@@ -37,8 +38,7 @@ public class Menu implements Constance {
                         System.err.println(e.getMessage());
                     }
                     break;
-                case 5:
-
+                case SEARCH_CUSTOMER:
                     Search search = new Search(villa.customers);
                     try {
                         search.searchMenu();
